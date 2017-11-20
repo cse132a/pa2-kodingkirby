@@ -19,7 +19,7 @@ public class FTM {
 		
 		//Connect to the local database
 		Connection conn = DriverManager.getConnection 
-				("jdbc:postgresql://localhost:5432/pa2",
+				("jdbc:postgresql://localhost:5432/PA2Bank",
 				args[0], args[1]);
 		
 		//Start the program by dropping the influence table
