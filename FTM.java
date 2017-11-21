@@ -101,10 +101,19 @@ public class FTM {
 		}
 		
 		//Execute query asking for all info from influence
-		stmt.executeUpdate("insert into influence select * from current order by \"to\"");
-		rset = stmt.executeQuery("select * from influence order by \"from\"");
+		//stmt.executeUpdate("insert into influence select * from current order by \"to\"");
+		
+		stmt.executeUpdate("insert into influence select d1.cname as \"from\", d2.cname as \"to\" from depositor d1, depositor d2, current i where d1.ano = i.\"from\" and d2.ano = i.\"to\" order by d1.cname");
+		//stmt.executeUpdate("update influence SET \"from\" = x.cname)
+		
+		rset = stmt.executeQuery("select * from influence");
+
 		if(testmode){System.out.println("Ran select from influence");}	
 
+		//Replace account numbers from influnece with names of customers
+		
+
+		
 		//Print result of influence
 		//Output T
 
